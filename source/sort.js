@@ -33,17 +33,16 @@ const capitalizeFirstLetter = inputString => inputString[0].toUpperCase()
  * @return {string} Full sorted string
  */
 const sort = inputString => {
-  
+
   if (typeof inputString !== 'string') {
     return console.log("Non string input");
-  } else {
+  }
     return inputString
                     .split(' ')
                     .map(sortInsideWords)
                     .map(capitalizeFirstLetter)
                     .sort(comparator)
                     .join(' ');
-  }
 }
 
 
