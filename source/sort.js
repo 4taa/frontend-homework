@@ -34,20 +34,25 @@ const capitalizeFirstLetter = inputString => inputString[0].toUpperCase()
  */
 const sort = inputString => {
 
-  if (typeof inputString !== 'string') {
-    return console.log("Non string input");
-  }
+  try {
+
+    if (typeof inputString !== 'string') {
+      throw new Error ('non string input');
+    }
+
+    if (inputString == '') {
+      throw new Error('empty string');
+    }
+
     return inputString
                     .split(' ')
                     .map(sortInsideWords)
                     .map(capitalizeFirstLetter)
                     .sort(comparator)
                     .join(' ');
+  }
+
+  catch (error) {
+    // console.log(Error);
+  }
 }
-
-
-//tests
-console.log(sort('fedcba fedcba fedcba'));
-console.log(sort('тест тест тест'));
-console.log(sort('Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmodtempor incididunt ut labore et dolore magna aliqua'));
-console.log(sort(1));
