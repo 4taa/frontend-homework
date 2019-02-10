@@ -40,7 +40,7 @@ const sort = inputString => {
       throw new Error ('non string input');
     }
 
-    if (inputString == '') {
+    if (inputString === '') {
       throw new Error('empty string');
     }
 
